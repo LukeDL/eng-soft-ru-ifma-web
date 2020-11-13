@@ -5,9 +5,14 @@ const bodyParser = require('body-parser')
 const { check, validationResult } = require('express-validator')
 const app = express()
 
+const bcrypt = require('bcrypt')
+const saltRounds = 13
+
 // Import and Set Nuxt.js options
 const config = require('../nuxt.config.js')
 config.dev = process.env.NODE_ENV !== 'production'
+
+const models = require('./models/index.js')
 
 async function start() {
   // Init Nuxt.js
@@ -39,6 +44,26 @@ async function start() {
         return res.status(422).json({ erros: errors.array() })
       }
       console.log(req.body)
+
+      // send data to DATABASE
+
+      bcrypt.genSalt(saltRounds, (err, Salt) => {
+        if (err) {
+          console.log(err.stack)
+        }
+        bcrypt.hash(req.body.password, Salt, (err, Hash) => {
+          if (err) {
+            console.log(err)
+          }
+          console.log(Hash)
+          models.User.create({
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            email: req.body.email,
+            password: Hash
+          })
+        })
+      })
     }
   )
 
