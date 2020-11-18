@@ -1,14 +1,5 @@
 <template>
   <div class="Registration">
-    <section class="hero is-primary">
-      <div class="hero-body">
-        <div class="container">
-          <h1 class="title is-1">RU - IFMA</h1>
-          <h2 class="subtitle is-3">Registro de Usuario</h2>
-        </div>
-      </div>
-    </section>
-
     <div class="columns is-centered">
       <div class="box column is-one-quarter has-background-white">
         <form id="login-form" @submit.prevent="submitForm">

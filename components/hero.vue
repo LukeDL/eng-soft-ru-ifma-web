@@ -1,45 +1,13 @@
 <template>
   <div>
-    <section class="hero is-primary is-medium">
+    <section class="hero is-primary is-medium is-bold">
       <!-- HERO BODY -->
       <div class="hero-body">
-        /
-      </div>
-      <!-- /HERO BODY -->
-
-      <!--HERO FOOTER -->
-      <div class="hero-foot">
-        <div id="navbarMenuHero" class="navbar-menu">
-          <div class="navbar-end">
-            <a class="navbar-item is-link">Home</a>
-            <div class="navbar-item has-dropdown is-link is-hoverable">
-              <!-- MENU HEAD -->
-              <a class="navbar-item is-arrowless has-icon-left"
-                >User
-                <span class="icon is-small is-left">
-                  <i class="fas fa-circle fa-stack-2x"></i>
-                  <i class="fas fa-user fa-stack-1x fa-inverse"></i>
-                </span>
-              </a>
-
-              <!-- /MENU HEAD -->
-
-              <!-- MENU ITENS -->
-              <nuxt-link to="/profile" class="navbar-item">Profile</nuxt-link>
-              <div class="navbar-item">
-                <div class="buttons">
-                  <button class="button is-dark">
-                    <span>Sair</span
-                    ><span class="icon is-small is-left">
-                      <i class="fas fa-user"></i>
-                    </span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div class="container">
+          <div class="title is-1">RU - IFMA</div>
         </div>
       </div>
+      <!-- /HERO BODY -->
     </section>
   </div>
 </template>
@@ -50,4 +18,12 @@ export default {
 }
 </script>
 
-<style></style>
+<style lang="scss">
+/*.button {
+  border-radius: 25px;
+  background-color: #25a25a;
+}
+.button:hover {
+  background-color: #1c7943;
+}*/
+</style>
