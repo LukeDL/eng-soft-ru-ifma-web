@@ -1,0 +1,33 @@
+// Exemple Colors
+$purple: #8A4D76;
+$pink: #FA7C91;
+$brown: #757763;
+$beige-light: #D0D1CD;
+$beige-lighter: #EFF0EB;
+
+// SUAP Colors
+
+$suap-green: #25a25a;
+$suap-dark-green: #1c7943;
+$suap-background-color: #555;
+$suap-background-accent-color: findLightColor($suap-background-color);
+$suap-menu-color: #292929;
+$suap-menu-accent-color: rgba(0,0,0,0.5);
+
+
+
+// Update Bulma's global variables
+$family-sans-serif: "Nunito", sans-serif;
+$primary: $suap-green;
+$widescreen-enabled: false;
+$fullhd-enabled: false;
+
+// Update some of Bulma's component variables
+$body-background-color: $beige-lighter;
+$control-border-width: 2px;
+$input-border-color: transparent;
+$input-shadow: none;
+
+
+@import "../../node_modules/bulma/sass/utilities/_all.sass";
+@import "../../node_modules/bulma/bulma";

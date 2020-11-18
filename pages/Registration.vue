@@ -1,5 +1,14 @@
 <template>
   <div class="Registration">
+    <section class="hero is-primary">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title is-1">RU - IFMA</h1>
+          <h2 class="subtitle is-3">Registro de Usuario</h2>
+        </div>
+      </div>
+    </section>
+
     <div class="columns is-centered">
       <div class="box column is-one-quarter has-background-white">
         <form id="login-form" @submit.prevent="submitForm">
@@ -72,7 +81,7 @@
 
           <div class="field">
             <div class="control">
-              <button class="button is-fullwidth has-text-light">
+              <button class="button is-fullwidth has-text-light is-primary">
                 Registrar
               </button>
             </div>
@@ -125,12 +134,12 @@ export default {
 }
 </script>
 
-<style scoped>
-.button {
+<style scoped lang="scss">
+/*.button {
   border-radius: 25px;
   background-color: #25a25a;
 }
 .button:hover {
   background-color: #1c7943;
-}
+}*/
 </style>

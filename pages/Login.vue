@@ -1,43 +1,41 @@
 <template>
-  <div class="login">
-    <div class="columns is-centered">
-      <div class="box column is-one-quarter has-background-white">
-        <form id="login-form" @submit.prevent="submitForm">
-          <div class="field">
-            <label for="" class="label is-small has-text-left">Login:</label>
-            <div class="control">
-              <input
-                id="email"
-                v-model="email"
-                type="text"
-                class="input"
-                name="email"
-              />
-            </div>
+  <div class="columns is-centered">
+    <div class="box column is-one-quarter has-background-white">
+      <form id="login-form" @submit.prevent="submitForm">
+        <div class="field">
+          <label for="" class="label is-small has-text-left">Login:</label>
+          <div class="control">
+            <input
+              id="email"
+              v-model="email"
+              type="text"
+              class="input"
+              name="email"
+            />
           </div>
+        </div>
 
-          <div class="field">
-            <label for="" class="label is-small has-text-left">Senha:</label>
-            <div class="control">
-              <input
-                id="password"
-                v-model="password"
-                type="password"
-                class="input"
-                name="password"
-              />
-            </div>
+        <div class="field">
+          <label for="" class="label is-small has-text-left">Senha:</label>
+          <div class="control">
+            <input
+              id="password"
+              v-model="password"
+              type="password"
+              class="input"
+              name="password"
+            />
           </div>
+        </div>
 
-          <div class="field">
-            <div class="control">
-              <button class="button is-fullwidth has-text-light">
-                Acessar
-              </button>
-            </div>
+        <div class="field">
+          <div class="control">
+            <button class="button is-fullwidth has-text-light is-primary">
+              Acessar
+            </button>
           </div>
-        </form>
-      </div>
+        </div>
+      </form>
     </div>
   </div>
 </template>
@@ -68,12 +66,14 @@ export default {
 }
 </script>
 
-<style scoped>
-.button {
+<style scoped lang="scss">
+@import '~assets/scss/main.scss';
+
+/*.button {
   border-radius: 25px;
   background-color: #25a25a;
 }
 .button:hover {
   background-color: #1c7943;
-}
+}*/
 </style>

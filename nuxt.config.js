@@ -23,7 +23,9 @@ module.exports = {
   /*
    ** Global CSS
    */
-  css: [],
+  css: [
+    /* { src: '@/assets/main.scss', lang: 'sass' } */
+  ],
   /*
    ** Plugins to load before mounting the App
    */
@@ -40,10 +42,12 @@ module.exports = {
    */
   modules: [
     // Doc: https://github.com/nuxt-community/modules/tree/master/packages/bulma
-    '@nuxtjs/bulma',
+    // '@nuxtjs/bulma',
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/pwa'
+    '@nuxtjs/pwa',
+    '@nuxtjs/style-resources',
+    '@nuxt-fontawesome'
   ],
   /*
    ** Axios module configuration
@@ -65,6 +69,15 @@ module.exports = {
      ** You can extend webpack config here
      */
     extend(config, ctx) {}
+  },
+
+  styleResources: {
+    scss: ['./assets/scss/main.scss']
+  },
+  fontawesome: {
+    icons: {
+      solid: ['faUser']
+    }
   },
 
   telemetry: true
