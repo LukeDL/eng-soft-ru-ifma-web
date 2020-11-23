@@ -1,9 +1,9 @@
 // Exemple Colors
-$purple: #8A4D76;
-$pink: #FA7C91;
+$purple: #8a4d76;
+$pink: #fa7c91;
 $brown: #757763;
-$beige-light: #D0D1CD;
-$beige-lighter: #EFF0EB;
+$beige-light: #d0d1cd;
+$beige-lighter: #eff0eb;
 
 // SUAP Colors
 
@@ -12,15 +12,20 @@ $suap-dark-green: #1c7943;
 $suap-background-color: #555;
 $suap-background-accent-color: findLightColor($suap-background-color);
 $suap-menu-color: #292929;
-$suap-menu-accent-color: rgba(0,0,0,0.5);
+$suap-menu-accent-color: rgba(0, 0, 0, 0.5);
 
+// GREEN Colors
 
+$sacramento: #043927;
+$tea: #d0f0c0;
+$laurel: #a9ba9d;
 
 // Update Bulma's global variables
-$family-sans-serif: "Nunito", sans-serif;
+// $family-sans-serif: 'Nunito', sans-serif;
 $primary: $suap-green;
-$widescreen-enabled: false;
-$fullhd-enabled: false;
+$info: $sacramento;
+$danger: $tea;
+$warning: $laurel;
 
 // Update some of Bulma's component variables
 /*
@@ -29,6 +34,5 @@ $control-border-width: 2px;
 $input-border-color: transparent;
 $input-shadow: none;
 */
-
-@import "../../node_modules/bulma/sass/utilities/_all.sass";
-@import "../../node_modules/bulma/bulma";
+@import '../../node_modules/bulma/sass/utilities/_all.sass';
+@import '../../node_modules/bulma/bulma';

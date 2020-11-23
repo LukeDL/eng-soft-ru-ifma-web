@@ -3,7 +3,6 @@ module.exports = (sequelize, DataTypes) => {
   const Nutritionist = sequelize.define(
     'Nutritionist',
     {
-      id: DataTypes.INTEGER,
       registration: DataTypes.STRING
     },
     {}
