@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class>
     <section class="hero is-primary is-bold">
       <!-- HERO BODY -->
       <div class="hero-body">
@@ -9,10 +9,9 @@
       </div>
       <!-- /HERO BODY -->
     </section>
-
     <!-- NAVBAR -->
 
-    <nav class="navbar is-info">
+    <nav class="navbar is-dark is-transparent">
       <div class="navbar-menu">
         <div class="navbar-end">
           <a class="navbar-item">Home</a>
@@ -23,15 +22,19 @@
           <!-- NAVBAR-DROPDOWN -->
 
           <div class="navbar-item has-dropdown is-hoverable">
-            <a class="navbar-link">
+            <a class="navbar-link is-arrowless">
               // User //
             </a>
 
-            <div class="navbar-dropdown">
+            <div class="navbar-dropdown is-boxed is-right">
               <a href="" class="navbar-item">Profile</a>
-              <a href="" class="navbar-item has-text-centered"
-                ><button class="button is-dark is-small">
-                  Sign Out
+              <hr class="navbar-divider" />
+              <a href="" class="navbar-item is-align-items-center"
+                ><button class="button is-dark is-small is-align-self-center">
+                  <span class="icon is-left is-small">
+                    <font-awesome-icon :icon="['fas', 'sign-out-alt']" />
+                  </span>
+                  <span>Sign Out</span>
                 </button></a
               >
             </div>

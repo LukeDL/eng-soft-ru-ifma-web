@@ -47,7 +47,7 @@ module.exports = {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     '@nuxtjs/style-resources',
-    '@nuxt-fontawesome'
+    '@nuxtjs/fontawesome'
   ],
   /*
    ** Axios module configuration
@@ -76,7 +76,7 @@ module.exports = {
   },
   fontawesome: {
     icons: {
-      solid: ['faUser']
+      solid: true
     }
   },
 

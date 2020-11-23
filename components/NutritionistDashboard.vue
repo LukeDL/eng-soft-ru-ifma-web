@@ -10,7 +10,18 @@
                   <div class="box">
                     <p class="title">Refeição Rápida:</p>
                     <button class="button is-dark is-fullwidth is-medium">
-                      Adicionar Refeição
+                      <span class="icon is-small is-left">
+                        <font-awesome-layers>
+                          <font-awesome-icon :icon="['fas', 'circle']" />
+                          <font-awesome-icon
+                            :icon="['fas', 'plus']"
+                            :style="{ color: 'black' }"
+                            transform="shrink-3"
+                          />
+                        </font-awesome-layers>
+                      </span>
+
+                      <span>Adicionar Refeição</span>
                     </button>
                   </div>
                 </div>
@@ -19,7 +30,17 @@
                 <div class="box">
                   <p class="title is-size-4">Preparações Rapidas:</p>
                   <button class="button is-dark is-fullwidth is-medium">
-                    Adicionar Preparação
+                    <span class="icon is-small is-left">
+                      <font-awesome-layers>
+                        <font-awesome-icon :icon="['fas', 'circle']" />
+                        <font-awesome-icon
+                          :icon="['fas', 'plus']"
+                          :style="{ color: 'black' }"
+                          transform="shrink-3"
+                        />
+                      </font-awesome-layers>
+                    </span>
+                    <span>Adicionar Preparação</span>
                   </button>
                 </div>
               </div>
@@ -61,4 +82,4 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped lang="scss"></style>

@@ -34,5 +34,10 @@ $control-border-width: 2px;
 $input-border-color: transparent;
 $input-shadow: none;
 */
+
+$notification-padding: 1.25rem 1.25rem 1.25rem 1.25rem;
+$notification-padding-ltr: 1.25rem 1.25rem 1.25rem 1.25rem;
+$notification-padding-rtl: 1.25rem 1.25rem 1.25rem 1.25rem;
+
 @import '../../node_modules/bulma/sass/utilities/_all.sass';
 @import '../../node_modules/bulma/bulma';
