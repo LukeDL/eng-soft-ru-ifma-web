@@ -10,9 +10,9 @@ module.exports = (sequelize, DataTypes) => {
   )
   Ingredients.associate = function(models) {
     // associations can be defined here
-
-    Ingredients.belongsToMany(models.Meals, {
-      through: 'MealIngredients'
+    //
+    Ingredients.belongsToMany(models.Preparations, {
+      through: 'PreparationsIngredients'
     })
   }
   return Ingredients

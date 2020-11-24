@@ -1,5 +1,4 @@
 'use strict'
-
 module.exports = {
   up: (queryInterface, Sequelize) => {
     /*
@@ -9,28 +8,41 @@ module.exports = {
       Example:
       return queryInterface.createTable('users', { id: Sequelize.INTEGER });
     */
-    return queryInterface.createTable('MealIngredients', {
-      mealId: {
-        type: Sequelize.INTEGER,
+
+    return queryInterface.createTable('PreparationsIngredients', {
+      id: {
+        allowNull: false,
+        autoIncrement: true,
         primaryKey: true,
+        type: Sequelize.INTEGER
+      },
+      preparationId: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
         references: {
-          model: 'Meals',
+          model: 'Preparations',
           key: 'id',
-          as: 'mealId'
+          as: 'preparationId'
         },
-        onDelete: 'CASCADE',
-        allowNull: false
+        onDelete: 'CASCADE'
       },
       ingredientId: {
+        allowNull: false,
         type: Sequelize.INTEGER,
-        primaryKey: true,
-        references: {
+        refereces: {
           model: 'Ingredients',
           key: 'id',
           as: 'ingredientId'
         },
-        onDelete: 'CASCADE',
-        allowNull: false
+        onDelete: 'CASCADE'
+      },
+      quantity: {
+        allowNull: false,
+        type: Sequelize.INTEGER
+      },
+      quantityType: {
+        allowNull: false,
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
@@ -51,7 +63,5 @@ module.exports = {
       Example:
       return queryInterface.dropTable('users');
     */
-
-    return queryInterface.dropTable('IngredientMeals')
   }
 }

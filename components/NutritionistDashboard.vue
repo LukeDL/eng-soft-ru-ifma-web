@@ -15,7 +15,7 @@
                           <font-awesome-icon :icon="['fas', 'circle']" />
                           <font-awesome-icon
                             :icon="['fas', 'plus']"
-                            :style="{ color: 'black' }"
+                            :style="{ color: 363636 }"
                             transform="shrink-3"
                           />
                         </font-awesome-layers>
@@ -35,7 +35,7 @@
                         <font-awesome-icon :icon="['fas', 'circle']" />
                         <font-awesome-icon
                           :icon="['fas', 'plus']"
-                          :style="{ color: 'black' }"
+                          :style="{ color: 363636 }"
                           transform="shrink-3"
                         />
                       </font-awesome-layers>

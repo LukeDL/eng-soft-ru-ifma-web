@@ -20,6 +20,10 @@ module.exports = {
           as: 'nutritionist'
         }
       },
+      date: {
+        allowNull: false,
+        type: Sequelize.DATEONLY
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

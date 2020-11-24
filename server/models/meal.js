@@ -13,8 +13,8 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'id',
       onDelete: 'CASCADE'
     })
-    Meals.belongsToMany(models.Ingredients, {
-      through: 'MealIngredients'
+    this.belongsToMany(models.Preparations, {
+      through: 'PreparationsIngredients'
     })
   }
   return Meals

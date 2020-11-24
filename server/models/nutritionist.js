@@ -18,6 +18,11 @@ module.exports = (sequelize, DataTypes) => {
     this.hasMany(models.Meals, {
       foreignKey: 'id'
     })
+
+    this.hasMany(models.Preparations, {
+      foreignKey: 'id',
+      onDelete: 'CACADE'
+    })
   }
   return Nutritionist
 }
