@@ -29,7 +29,7 @@ module.exports = {
       ingredientId: {
         allowNull: false,
         type: Sequelize.INTEGER,
-        refereces: {
+        references: {
           model: 'Ingredients',
           key: 'id',
           as: 'ingredientId'
@@ -63,5 +63,7 @@ module.exports = {
       Example:
       return queryInterface.dropTable('users');
     */
+
+    return queryInterface.dropTable('PreparationsIngredients')
   }
 }

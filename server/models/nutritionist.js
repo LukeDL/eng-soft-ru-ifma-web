@@ -1,13 +1,13 @@
 'use strict'
 module.exports = (sequelize, DataTypes) => {
-  const Nutritionist = sequelize.define(
-    'Nutritionist',
+  const Nutritionists = sequelize.define(
+    'Nutritionists',
     {
       registration: DataTypes.STRING
     },
     {}
   )
-  Nutritionist.associate = function(models) {
+  Nutritionists.associate = function(models) {
     // associations can be defined here
 
     this.belongsTo(models.User, {
@@ -24,5 +24,5 @@ module.exports = (sequelize, DataTypes) => {
       onDelete: 'CACADE'
     })
   }
-  return Nutritionist
+  return Nutritionists
 }

@@ -9,8 +9,8 @@ module.exports = (sequelize, DataTypes) => {
   )
   Meals.associate = function(models) {
     // associations can be defined here
-    Meals.belongsTo(models.Nutritionist, {
-      foreignKey: 'id',
+    Meals.belongsTo(models.Nutritionists, {
+      foreignKey: 'nutritionistId',
       onDelete: 'CASCADE'
     })
     this.belongsToMany(models.Preparations, {

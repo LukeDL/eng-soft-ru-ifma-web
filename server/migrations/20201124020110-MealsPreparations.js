@@ -16,6 +16,26 @@ module.exports = {
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
+      },
+      mealId: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Meals',
+          key: 'id',
+          as: 'mealId'
+        },
+        onDelete: 'CASCADE'
+      },
+      preparationId: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Preparations',
+          key: 'id',
+          as: 'preparationId'
+        },
+        onDelete: 'CASCADE'
       }
     })
   },
@@ -28,5 +48,7 @@ module.exports = {
       Example:
       return queryInterface.dropTable('users');
     */
+
+    return queryInterface.dropTable('MealsPreparations')
   }
 }

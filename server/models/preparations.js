@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
   Preparations.associate = function(models) {
     // associations can be defined here
 
-    this.belongsTo(models.Nutritionist, {
+    this.belongsTo(models.Nutritionists, {
       foreignKey: 'id',
       onDelete: 'CASCADE'
     })

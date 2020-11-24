@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
   )
   User.associate = function(models) {
     // associations can be defined here
-    this.hasOne(models.Nutritionist, {
+    this.hasOne(models.Nutritionists, {
       foreignKey: 'id'
     })
   }

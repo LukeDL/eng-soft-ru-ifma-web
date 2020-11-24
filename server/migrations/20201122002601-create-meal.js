@@ -9,15 +9,17 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       mealName: {
-        type: Sequelize.STRING
+        allowNull: false,
+        type: Sequelize.STRING,
+        unique: true
       },
-      nutritionist: {
+      nutritionistId: {
         allowNull: false,
         type: Sequelize.INTEGER,
         references: {
-          model: 'Nutritionist',
+          model: 'Nutritionists',
           key: 'id',
-          as: 'nutritionist'
+          as: 'nutritionistId'
         }
       },
       date: {
