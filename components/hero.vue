@@ -18,6 +18,7 @@
           <a class="navbar-item">Refeições</a>
           <a class="navbar-item">Preparos</a>
           <a class="navbar-item">Ingredientes</a>
+          <a class="navbar-item">Usuários</a>
 
           <!-- NAVBAR-DROPDOWN -->
 
@@ -30,7 +31,7 @@
               <a href="" class="navbar-item">Profile</a>
               <hr class="navbar-divider" />
               <a href="" class="navbar-item is-align-items-center"
-                ><button class="button is-dark is-small is-align-self-center">
+                ><button class="button is-small is-align-self-center">
                   <span class="icon is-left is-small">
                     <font-awesome-icon :icon="['fas', 'sign-out-alt']" />
                   </span>
@@ -55,7 +56,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 /*.button {
   border-radius: 25px;
   background-color: #25a25a;

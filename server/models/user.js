@@ -16,6 +16,10 @@ module.exports = (sequelize, DataTypes) => {
     this.hasOne(models.Nutritionists, {
       foreignKey: 'id'
     })
+
+    this.hasOne(models.Administrator, {
+      foreignKey: 'id'
+    })
   }
   return User
 }

@@ -1,42 +1,46 @@
 <template>
-  <div class="columns is-centered">
-    <div class="box column is-one-quarter has-background-white">
-      <form id="login-form" @submit.prevent="submitForm">
-        <div class="field">
-          <label for="" class="label is-small has-text-left">Login:</label>
-          <div class="control">
-            <input
-              id="email"
-              v-model="email"
-              type="text"
-              class="input"
-              name="email"
-            />
-          </div>
-        </div>
+  <div>
+    <section class="section">
+      <div class="columns is-centered">
+        <div class="box column is-one-quarter has-background-white">
+          <form id="login-form" @submit.prevent="submitForm">
+            <div class="field">
+              <label for="" class="label is-small has-text-left">Login:</label>
+              <div class="control">
+                <input
+                  id="email"
+                  v-model="email"
+                  type="text"
+                  class="input"
+                  name="email"
+                />
+              </div>
+            </div>
 
-        <div class="field">
-          <label for="" class="label is-small has-text-left">Senha:</label>
-          <div class="control">
-            <input
-              id="password"
-              v-model="password"
-              type="password"
-              class="input"
-              name="password"
-            />
-          </div>
-        </div>
+            <div class="field">
+              <label for="" class="label is-small has-text-left">Senha:</label>
+              <div class="control">
+                <input
+                  id="password"
+                  v-model="password"
+                  type="password"
+                  class="input"
+                  name="password"
+                />
+              </div>
+            </div>
 
-        <div class="field">
-          <div class="control">
-            <button class="button is-fullwidth has-text-light is-primary">
-              Acessar
-            </button>
-          </div>
+            <div class="field">
+              <div class="control">
+                <button class="button is-fullwidth has-text-light is-primary">
+                  Acessar
+                </button>
+              </div>
+            </div>
+          </form>
         </div>
-      </form>
-    </div>
+      </div>
+    </section>
   </div>
 </template>
 
