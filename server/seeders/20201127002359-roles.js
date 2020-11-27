@@ -1,7 +1,5 @@
 'use strict'
 
-const bcrypt = require('bcrypt')
-
 module.exports = {
   up: (queryInterface, Sequelize) => {
     /*
@@ -15,29 +13,31 @@ module.exports = {
       }], {});
     */
 
-    let pass = ''
     const created = new Date()
     const updated = new Date()
 
-    return bcrypt.hash('01123581321', 13).then(function(Hash) {
-      console.log(Hash)
-      pass = Hash
-
-      queryInterface.bulkInsert(
-        'Users',
-        [
-          {
-            firstName: 'admin',
-            lastName: 'istrator',
-            email: 'admin@all.com',
-            password: pass,
-            createdAt: created,
-            updatedAt: updated
-          }
-        ],
-        {}
-      )
-    })
+    return queryInterface.bulkInsert('Roles', [
+      {
+        type: 'Administrator',
+        createdAt: created,
+        updatedAt: updated
+      },
+      {
+        type: 'Nutritionist',
+        createdAt: created,
+        updatedAt: updated
+      },
+      {
+        type: 'Manager',
+        createdAt: created,
+        updatedAt: updated
+      },
+      {
+        type: 'Student',
+        createdAt: created,
+        updatedAt: updated
+      }
+    ])
   },
 
   down: (queryInterface, Sequelize) => {
@@ -49,6 +49,6 @@ module.exports = {
       return queryInterface.bulkDelete('People', null, {});
     */
 
-    return queryInterface.bulkDelete('Users', null, {})
+    return queryInterface.bulkDelete('Roles', null, {})
   }
 }

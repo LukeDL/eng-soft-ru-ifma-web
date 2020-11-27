@@ -4,15 +4,15 @@ module.exports = (sequelize, DataTypes) => {
     'Preparations',
     {
       preparationName: DataTypes.STRING,
-      nutritionistId: DataTypes.INTEGER
+      user: DataTypes.INTEGER
     },
     {}
   )
   Preparations.associate = function(models) {
     // associations can be defined here
 
-    this.belongsTo(models.Nutritionists, {
-      foreignKey: 'id',
+    this.belongsTo(models.User, {
+      foreignKey: 'user',
       onDelete: 'CASCADE'
     })
 

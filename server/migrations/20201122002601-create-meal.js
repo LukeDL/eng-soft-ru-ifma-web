@@ -13,13 +13,13 @@ module.exports = {
         type: Sequelize.STRING,
         unique: true
       },
-      nutritionistId: {
+      user: {
         allowNull: false,
         type: Sequelize.INTEGER,
         references: {
-          model: 'Nutritionists',
+          model: 'Users',
           key: 'id',
-          as: 'nutritionistId'
+          as: 'user'
         }
       },
       date: {

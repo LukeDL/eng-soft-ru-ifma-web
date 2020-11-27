@@ -1,5 +1,8 @@
 'use strict'
 
+const bcrypt = require('bcrypt')
+require('dotenv').config()
+
 module.exports = {
   up: (queryInterface, Sequelize) => {
     /*
@@ -13,14 +16,23 @@ module.exports = {
       }], {});
     */
 
+    const created = new Date()
+    const updated = new Date()
+
+    const salt = bcrypt.genSaltSync(13)
+    const hash = bcrypt.hashSync(process.env.ADMIN_PASSWORD, salt)
+
     return queryInterface.bulkInsert(
-      'Administrators',
+      'Users',
       [
         {
-          id: 1,
-          registration: '01123581321',
-          createdAt: new Date(),
-          updatedAt: new Date()
+          firstName: 'admin',
+          lastName: 'istrator',
+          email: 'admin@all.com',
+          password: hash,
+          role: '1',
+          createdAt: created,
+          updatedAt: updated
         }
       ],
       {}
@@ -35,7 +47,6 @@ module.exports = {
       Example:
       return queryInterface.bulkDelete('People', null, {});
     */
-
-    return queryInterface.bulkDelete('Administrators', null, {})
+    return queryInterface.bulkDelete('Users', null, {})
   }
 }

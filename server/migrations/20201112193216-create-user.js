@@ -30,7 +30,17 @@ module.exports = {
       password: {
         type: Sequelize.STRING,
         allowNull: false
-      },
+      } /* ,
+      role: {
+        type: Sequelize.STRING,
+        allowNull: false
+          references: {
+          model: 'Roles',
+          key: 'id',
+          as: 'role'
+        },
+        onDelete: 'CASCADE' 
+      } */,
       birthday: {
         type: Sequelize.DATEONLY,
         allowNull: true

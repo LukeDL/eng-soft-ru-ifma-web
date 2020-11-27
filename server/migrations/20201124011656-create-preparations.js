@@ -11,13 +11,13 @@ module.exports = {
       preparationName: {
         type: Sequelize.STRING
       },
-      nutritionist: {
+      user: {
         allowNull: false,
         type: Sequelize.INTEGER,
         references: {
-          model: 'Nutritionists',
+          model: 'Users',
           key: 'id',
-          as: 'nutritionist'
+          as: 'user'
         }
       },
       createdAt: {

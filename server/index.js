@@ -30,6 +30,8 @@ async function start() {
   app.use(bodyParser.json())
   app.use(bodyParser.urlencoded({ extended: false }))
 
+  // Create USER
+
   app.post(
     '/api/users',
     [
@@ -66,6 +68,8 @@ async function start() {
       })
     }
   )
+
+  app.post('api/session', [], (req, res) => {})
 
   // Give nuxt middleware to express
   app.use(nuxt.render)
