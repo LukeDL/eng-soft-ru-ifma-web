@@ -8,6 +8,8 @@ const app = express()
 const bcrypt = require('bcrypt')
 const saltRounds = 13
 
+const jwt = require('jsonwebtoken')
+
 // Import and Set Nuxt.js options
 const config = require('../nuxt.config.js')
 config.dev = process.env.NODE_ENV !== 'production'
@@ -33,7 +35,7 @@ async function start() {
   // Create USER
 
   app.post(
-    '/api/users',
+    '/api/signup',
     [
       check('email')
         .isEmail()
@@ -69,7 +71,76 @@ async function start() {
     }
   )
 
-  app.post('api/session', [], (req, res) => {})
+  // receive request via $axios
+  app.post(
+    '/api/session',
+    [
+      check('email')
+        .isEmail()
+        .normalizeEmail(),
+      check('password').isLength({ min: 6 })
+    ],
+    (req, res) => {
+      // load data from DB using Sequelize
+      models.User.findOne({ where: { email: req.body.email } })
+        .then((user) => {
+          bcrypt
+            .compare(req.body.password, user.password) // compare password using bcrypt
+            .then((result) => {
+              try {
+                const tokenJwt = jwt.sign(
+                  {
+                    name: user.firstName,
+                    email: user.email,
+                    role: user.role
+                  },
+                  process.env.AUTH_USER_SECRET
+                )
+                return res.json({
+                  user: {
+                    name: user.firstName,
+                    email: user.email,
+                    role: user.role
+                  },
+                  token: tokenJwt
+                }) // send token back
+              } catch (error) {
+                console.log('jwt error: ' + error)
+              }
+            })
+            .catch((err) => {
+              // catch bcrypt error
+              throw err
+            })
+        })
+        .catch((err) => {
+          // catch sequelize User.findOne error print on console.
+          console.log('models.User.findOne error: ' + err)
+        })
+    }
+  )
+
+  app.get('/api/session/user', [], (req, res) => {
+    const token = req.headers.authorization
+    if (token) {
+      jwt.verify(
+        token.replace(/^Bearer\s/, ''),
+        process.env.AUTH_USER_SECRET,
+        (err, decoded) => {
+          if (err) {
+            return res.status(401).json({ message: 'unauthorized' })
+          } else {
+            return res.json({ user: decoded })
+          }
+        }
+      )
+    } else {
+      console.log('un 2')
+      return res.status(401).json({ message: 'unauthorized' })
+    }
+  })
+
+  //  app.delete('/api/session', [], (req, res) => {})
 
   // Give nuxt middleware to express
   app.use(nuxt.render)

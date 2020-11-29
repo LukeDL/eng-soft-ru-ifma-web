@@ -54,17 +54,12 @@ export default {
   },
   methods: {
     submitForm() {
-      this.$axios
-        .post('/api/users', {
+      this.$auth.loginWith('local', {
+        data: {
           email: this.email,
           password: this.password
-        })
-        .then((response) => {
-          console.log(response)
-        })
-        .catch((error) => {
-          console.log(error)
-        })
+        }
+      })
     }
   }
 }

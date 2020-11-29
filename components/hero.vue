@@ -10,28 +10,38 @@
       <!-- /HERO BODY -->
     </section>
     <!-- NAVBAR -->
-
-    <nav class="navbar is-dark is-transparent">
+    <nav v-if="$auth.user" class="navbar is-dark is-transparent">
       <div class="navbar-menu">
         <div class="navbar-end">
           <a class="navbar-item">Home</a>
-          <a class="navbar-item">Refeições</a>
-          <a class="navbar-item">Preparos</a>
-          <a class="navbar-item">Ingredientes</a>
-          <a class="navbar-item">Usuários</a>
+          <a v-if="$auth.user && $auth.user.role == 2" class="navbar-item"
+            >Refeições</a
+          >
+          <a v-if="$auth.user && $auth.user.role == 2" class="navbar-item"
+            >Preparos</a
+          >
+          <a v-if="$auth.user && $auth.user.role == 2" class="navbar-item"
+            >Ingredientes</a
+          >
+          <a v-if="$auth.user && $auth.user.role == 1" class="navbar-item"
+            >Usuários</a
+          >
 
           <!-- NAVBAR-DROPDOWN -->
 
           <div class="navbar-item has-dropdown is-hoverable">
             <a class="navbar-link is-arrowless">
-              // User //
+              {{ $auth.user.name }}
             </a>
 
             <div class="navbar-dropdown is-boxed is-right">
               <a href="" class="navbar-item">Profile</a>
               <hr class="navbar-divider" />
               <a href="" class="navbar-item is-align-items-center"
-                ><button class="button is-small is-align-self-center">
+                ><button
+                  @click="logout()"
+                  class="button is-small is-dark is-align-self-center"
+                >
                   <span class="icon is-left is-small">
                     <font-awesome-icon :icon="['fas', 'sign-out-alt']" />
                   </span>
@@ -52,7 +62,13 @@
 
 <script>
 export default {
-  name: 'Hero'
+  name: 'Hero',
+  methods: {
+    async logout() {
+      await this.$auth.logout()
+      window.location.reload(true)
+    }
+  }
 }
 </script>
 

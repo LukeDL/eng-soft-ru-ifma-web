@@ -45,6 +45,7 @@ module.exports = {
     // '@nuxtjs/bulma',
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
+    '@nuxtjs/auth',
     '@nuxtjs/pwa',
     '@nuxtjs/style-resources',
     '@nuxtjs/fontawesome'
@@ -80,5 +81,29 @@ module.exports = {
     }
   },
 
-  telemetry: true
+  telemetry: true,
+
+  auth: {
+    strategies: {
+      local: {
+        endpoints: {
+          login: {
+            url: '/api/session',
+            method: 'post',
+            propertyName: 'token'
+          },
+          logout: { url: '/api/session', method: 'delete' },
+          user: {
+            url: '/api/session/user',
+            method: 'get',
+            propertyName: 'user'
+          }
+        },
+        tokenRequired: true
+        // tokenType: 'bearer'
+        // globalToken: true,
+        // autoFetchUser: true
+      }
+    }
+  }
 }
