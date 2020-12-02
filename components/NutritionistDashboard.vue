@@ -61,7 +61,8 @@
           <div class="tile is-parent">
             <div class="tile is-child notification is-warning">
               <div class="box">
-                <p class="is-size-1">CALENDARIO</p>
+                <p class="is-size-1">Saída das Refeições</p>
+                <MealsGraph />
               </div>
             </div>
           </div>
@@ -75,10 +76,11 @@
 
 <script>
 import MealsListItem from './MealsListItem.vue'
+import MealsGraph from './MealsGraph.vue'
 
 export default {
   name: 'NutritionistDashboard',
-  components: { MealsListItem }
+  components: { MealsListItem, MealsGraph }
 }
 </script>
 

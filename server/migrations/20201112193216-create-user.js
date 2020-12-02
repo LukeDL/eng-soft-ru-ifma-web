@@ -1,6 +1,8 @@
-/* TODO: Currently, this table is created with a password column,
-        the ideal would be an another table to store the password hash.
-        Sadly due to time constraints, we could not implement this right now
+/* 
+
+TODO: Currently, this table is created with a password column,
+      the ideal would be an another table to store the password hash.
+      Sadly due to time constraints, we could not implement this right now
 
 */
 
@@ -30,7 +32,8 @@ module.exports = {
       password: {
         type: Sequelize.STRING,
         allowNull: false
-      } /* ,
+      }, // TODO: Delete this
+      /* ,
       role: {
         type: Sequelize.STRING,
         allowNull: false
@@ -40,7 +43,7 @@ module.exports = {
           as: 'role'
         },
         onDelete: 'CASCADE' 
-      } */,
+      } */
       birthday: {
         type: Sequelize.DATEONLY,
         allowNull: true

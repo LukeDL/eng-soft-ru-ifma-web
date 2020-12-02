@@ -47,19 +47,19 @@ async function start() {
       if (!errors.isEmpty()) {
         return res.status(422).json({ erros: errors.array() })
       }
-      console.log(req.body)
+      // TODO: apagar essa linha: console.log(req.body)
 
       // send data to DATABASE
 
       bcrypt.genSalt(saltRounds, (err, Salt) => {
         if (err) {
-          console.log(err.stack)
+          throw err.stack
         }
         bcrypt.hash(req.body.password, Salt, (err, Hash) => {
           if (err) {
-            console.log(err)
+            throw err
           }
-          console.log(Hash)
+          // TODO: apagar essa linha console.log(Hash)
           models.User.create({
             firstName: req.body.firstName,
             lastName: req.body.lastName,
@@ -105,7 +105,7 @@ async function start() {
                   token: tokenJwt
                 }) // send token back
               } catch (error) {
-                console.log('jwt error: ' + error)
+                throw error
               }
             })
             .catch((err) => {
@@ -115,7 +115,7 @@ async function start() {
         })
         .catch((err) => {
           // catch sequelize User.findOne error print on console.
-          console.log('models.User.findOne error: ' + err)
+          throw err
         })
     }
   )
@@ -135,7 +135,7 @@ async function start() {
         }
       )
     } else {
-      console.log('un 2')
+      // TODO: apagar essa linha console.log('un 2')
       return res.status(401).json({ message: 'unauthorized' })
     }
   })
