@@ -1,10 +1,21 @@
 <template>
   <div>
+    <Hero />
     <nuxt />
   </div>
 </template>
 
-<style>
+<script>
+import Hero from '../components/hero'
+
+export default {
+  components: {
+    Hero
+  }
+}
+</script>
+
+<style lang="scss">
 html {
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     Roboto, 'Helvetica Neue', Arial, sans-serif;

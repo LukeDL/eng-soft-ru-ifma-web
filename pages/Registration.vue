@@ -72,7 +72,7 @@
 
           <div class="field">
             <div class="control">
-              <button class="button is-fullwidth has-text-light">
+              <button class="button is-fullwidth has-text-light is-primary">
                 Registrar
               </button>
             </div>
@@ -125,12 +125,12 @@ export default {
 }
 </script>
 
-<style scoped>
-.button {
+<style scoped lang="scss">
+/*.button {
   border-radius: 25px;
   background-color: #25a25a;
 }
 .button:hover {
   background-color: #1c7943;
-}
+}*/
 </style>

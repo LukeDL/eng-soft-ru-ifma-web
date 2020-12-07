@@ -14,7 +14,19 @@ module.exports = {
         content: process.env.npm_package_description || ''
       }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        rel: 'stylesheet',
+        href:
+          'https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap'
+      }
+    ],
+    script: [
+      {
+        src: 'jquery-3.5.1.min.js'
+      }
+    ]
   },
   /*
    ** Customize the progress-bar color
@@ -23,7 +35,9 @@ module.exports = {
   /*
    ** Global CSS
    */
-  css: [],
+  css: [
+    /* { src: '@/assets/main.scss', lang: 'sass' } */
+  ],
   /*
    ** Plugins to load before mounting the App
    */
@@ -40,10 +54,13 @@ module.exports = {
    */
   modules: [
     // Doc: https://github.com/nuxt-community/modules/tree/master/packages/bulma
-    '@nuxtjs/bulma',
+    // '@nuxtjs/bulma',
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/pwa'
+    '@nuxtjs/auth',
+    '@nuxtjs/pwa',
+    '@nuxtjs/style-resources',
+    '@nuxtjs/fontawesome'
   ],
   /*
    ** Axios module configuration
@@ -67,5 +84,39 @@ module.exports = {
     extend(config, ctx) {}
   },
 
-  telemetry: true
+  styleResources: {
+    scss: ['./assets/scss/main.scss']
+  },
+  fontawesome: {
+    icons: {
+      solid: true,
+      regular: true
+    }
+  },
+
+  telemetry: true,
+
+  auth: {
+    strategies: {
+      local: {
+        endpoints: {
+          login: {
+            url: '/api/session',
+            method: 'post',
+            propertyName: 'token'
+          },
+          logout: { url: '/api/session', method: 'delete' },
+          user: {
+            url: '/api/session/user',
+            method: 'get',
+            propertyName: 'user'
+          }
+        },
+        tokenRequired: true
+        // tokenType: 'bearer'
+        // globalToken: true,
+        // autoFetchUser: true
+      }
+    }
+  }
 }
