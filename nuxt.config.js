@@ -21,6 +21,11 @@ module.exports = {
         href:
           'https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap'
       }
+    ],
+    script: [
+      {
+        src: 'jquery-3.5.1.min.js'
+      }
     ]
   },
   /*
@@ -84,7 +89,8 @@ module.exports = {
   },
   fontawesome: {
     icons: {
-      solid: true
+      solid: true,
+      regular: true
     }
   },
 

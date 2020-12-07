@@ -13,7 +13,9 @@
     <nav v-if="$auth.user" class="navbar is-dark is-transparent">
       <div class="navbar-menu">
         <div class="navbar-end">
-          <a class="navbar-item">Home</a>
+          <a tag="nuxt-link" to="/Dashboard" class="navbar-item">
+            Home
+          </a>
           <a v-if="$auth.user && $auth.user.role == 2" class="navbar-item"
             >Refeições</a
           >

@@ -18,6 +18,10 @@ module.exports = (sequelize, DataTypes) => {
     this.belongsToMany(models.Preparations, {
       through: 'PreparationsIngredients'
     })
+
+    this.belongsToMany(models.User, {
+      through: 'StudentsMeals'
+    })
   }
   return Meals
 }

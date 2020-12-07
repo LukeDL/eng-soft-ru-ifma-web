@@ -90,6 +90,7 @@ async function start() {
               try {
                 const tokenJwt = jwt.sign(
                   {
+                    id: user.id,
                     name: user.firstName,
                     email: user.email,
                     role: user.role
@@ -98,6 +99,7 @@ async function start() {
                 )
                 return res.json({
                   user: {
+                    id: user.id,
                     name: user.firstName,
                     email: user.email,
                     role: user.role
@@ -140,7 +142,21 @@ async function start() {
     }
   })
 
-  //  app.delete('/api/session', [], (req, res) => {})
+  app.get('/api/preparations/types', [], async (req, res) => {
+    let types = await models.PreparationType.findAll({
+      attributes: ['id', 'preparationType']
+    })
+
+    return res.json((types = JSON.stringify(types, null, 2)))
+  })
+
+  app.get('/api/preparations/ingredients', [], async (req, res) => {
+    let ingredients = await models.Ingredients.findAll({
+      attributes: ['id', 'ingredientName']
+    })
+    console.log(JSON.stringify(ingredients, null, 2))
+    return res.json((ingredients = JSON.stringify(ingredients, null, 2)))
+  })
 
   // Give nuxt middleware to express
   app.use(nuxt.render)

@@ -29,7 +29,10 @@
               <div class="tile is-child notification is-info">
                 <div class="box">
                   <p class="title is-size-4">Preparações Rapidas:</p>
-                  <button class="button is-dark is-fullwidth is-medium">
+                  <button
+                    @click="modalActive('Preparations')"
+                    class="button is-dark is-fullwidth is-medium"
+                  >
                     <span class="icon is-small is-left">
                       <font-awesome-layers>
                         <font-awesome-icon :icon="['fas', 'circle']" />
@@ -71,16 +74,34 @@
       </div>
       <!-- /ancestor -->
     </section>
+
+    <PreparationModalCard
+      v-bind:class="{ 'is-active': isActive }"
+      v-on:modal-close="isActive = false"
+    />
   </div>
 </template>
 
 <script>
 import MealsListItem from './MealsListItem.vue'
 import MealsGraph from './MealsGraph.vue'
+import PreparationModalCard from './PreparationModalCard.vue'
 
 export default {
   name: 'NutritionistDashboard',
-  components: { MealsListItem, MealsGraph }
+  components: { MealsListItem, MealsGraph, PreparationModalCard },
+  data() {
+    return {
+      isActive: false
+    }
+  },
+  methods: {
+    modalActive(el) {
+      if (el === 'Preparations') {
+        this.isActive = !this.isActive
+      }
+    }
+  }
 }
 </script>
 

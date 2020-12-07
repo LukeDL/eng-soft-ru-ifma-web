@@ -29,6 +29,10 @@ module.exports = (sequelize, DataTypes) => {
     this.hasMany(models.Preparations, {
       foreignKey: 'id'
     })
+
+    this.belongsToMany(models.Meals, {
+      through: 'StudentMeals'
+    })
   }
   return User
 }
